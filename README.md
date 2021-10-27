@@ -10,9 +10,9 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![R-CMD-check](https://github.com/kaneplusplus/tibbletator/workflows/R-CMD-check/badge.svg)](https://github.com/kaneplusplus/tibbletator/actions)
 <!-- badges: end -->
 
-At the unholy intersection of they tidyverse and the shinyverse is the
-`tibbletator`, which allows you to manually change values in a
-`data.frame` object using shiny.
+At the unholy intersection of the tidyverse, the shinyverse, and
+Microsoft Excel isthe `tibbletator`, which allows you to manually change
+values in a `data.frame` object using shiny.
 
 ## Installation
 
