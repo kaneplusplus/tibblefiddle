@@ -7,7 +7,7 @@ Authors@R: c(
            email = "michael.kane@yale.edu",
            role = c("aut", "cre"),
            comment = c(ORCID = "http://orcid.org/0000-0003-1899-6662")))
-Description: Updatess a tibble with new column values based on use input in shiny.
+Description: Updates a tibble with new column values based on use input in shiny.
 License: LGPL (>= 2.1)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
