@@ -10,5 +10,10 @@ Authors@R: c(
 Description: Updates a tibble with new column values based on use input in shiny.
 License: LGPL (>= 2.1)
 Encoding: UTF-8
+Imports:
+  DT,
+  purrr,
+  shiny,
+  tibble
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2

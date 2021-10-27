@@ -20,37 +20,46 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/kaneplusplus/tibbletator/workflows/R-CMD-check/badge.svg)](https://github.com/kaneplusplus/tibbletator/actions)
 <!-- badges: end -->
 
-The goal of tibbletator is to ...
+At the unholy intersection of they tidyverse and the shinyverse is 
+the `tibbletator`, which allows you to manually change values in a `data.frame`
+object using shiny.
 
 ## Installation
 
-You can install the development version of tibbletator like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+devtools::install_github("presagia-analytics/tibbletator")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Say you want to check whether or not the cars in the mtcars data set
+are aesthetic and/or practical.
 
-```{r example}
+```{r eval = FALSE}
 library(tibbletator)
-## basic example code
+library(dplyr)
+library(tibble)
+
+# Take the `mtcars` model and tell if a car is aesthetic and/or practical.
+my_pics <- mtcars %>%
+  head() %>%
+  mutate(make = rownames(.)) %>%
+  select(make) %>%
+  mutate(aesthetic = FALSE, practical = FALSE) %>%
+  tibbletate(annotate_cols = c("aesthetic", "practical"))
+
+# The `aesthetic` and `practical columns in the `my_pics` dataframe reflect 
+# your choices.
+my_pics
+```
+```{r eval = TRUE, echo = FALSE}
+library(tibble)
+tibble(
+  make = c("Mazda RX4", "Mazda RX4 Wag", "Datsun 710", "Hornet 4 Drive",  
+           "Hornet Sportabout", "Valiant"),
+  aesthetic = c(TRUE, FALSE, FALSE, TRUE, FALSE, FALSE),
+  practical = c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE)
+)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
