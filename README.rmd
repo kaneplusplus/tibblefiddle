@@ -45,9 +45,12 @@ library(tibble)
 my_pics <- mtcars %>%
   head() %>%
   mutate(make = rownames(.)) %>%
-  select(make) %>%
   mutate(aesthetic = FALSE, practical = FALSE) %>%
-  tibblefiddle(annotate_cols = c("aesthetic", "practical"))
+  tibblefiddle(
+    annotate_vars = c("aesthetic", "practical"),
+    hide_vars = c("mpg", "disp")
+  )
+
 
 # The `aesthetic` and `practical columns in the `my_pics` dataframe reflect 
 # your choices.
