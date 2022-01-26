@@ -1,5 +1,5 @@
-Package: tibbletator
-Title: Annotate tibbles in Shiny
+Package: tibblefiddle
+Title: Fiddle with tibbles in Interactive R Sessions with Shiny
 Version: 0.0.1
 Authors@R: c(
   person(given = "Michael J.",
@@ -11,8 +11,8 @@ Description: Updates a tibble with new column values based on use input in shiny
 License: LGPL (>= 2.1)
 Encoding: UTF-8
 Imports:
-  DT,
   purrr,
+  rhandsontable,
   shiny,
   tibble
 Roxygen: list(markdown = TRUE)
