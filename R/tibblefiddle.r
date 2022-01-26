@@ -51,7 +51,7 @@ tibblefiddle <- function(x, annotate_vars = names(x), hide_vars = character(),
         if (!is.null(input$hot)) {
           x <<- hot_to_r(input$hot)
         }
-        rhandsontable(x, stretchH = "all") %>%
+        rhandsontable(x, manualColumnResize = TRUE, stretchH = "all") %>%
           hot_col(which(names(x) %in% read_only_vars), readOnly = TRUE)
       })
 
