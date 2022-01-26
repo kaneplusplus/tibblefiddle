@@ -57,6 +57,6 @@ tibblefiddle <- function(x, annotate_vars = names(x), hide_vars = character(),
 
     }
   )
-  runApp(app)
+  runApp(app, quiet = TRUE)
 }
 
