@@ -7,17 +7,17 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/kaneplusplus/tibbletator/workflows/R-CMD-check/badge.svg)](https://github.com/kaneplusplus/tibbletator/actions)
+[![R-CMD-check](https://github.com/kaneplusplus/fiddle/workflows/R-CMD-check/badge.svg)](https://github.com/kaneplusplus/tibblefiddle/actions)
 <!-- badges: end -->
 
 At the unholy intersection of the tidyverse, the shinyverse, and
-Microsoft Excel isthe `tibbletator`, which allows you to manually change
-values in a `data.frame` object using shiny.
+Microsoft Excel is the `tibblefiddle` package, which allows you to
+manually change values in a `data.frame` object using shiny.
 
 ## Installation
 
 ``` r
-devtools::install_github("presagia-analytics/tibbletator")
+devtools::install_github("presagia-analytics/tibblefiddle")
 ```
 
 ## Example
@@ -26,7 +26,7 @@ Say you want to check whether or not the cars in the mtcars data set are
 aesthetic and/or practical.
 
 ``` r
-library(tibbletator)
+library(tibblefiddle)
 library(dplyr)
 library(tibble)
 
@@ -34,9 +34,12 @@ library(tibble)
 my_pics <- mtcars %>%
   head() %>%
   mutate(make = rownames(.)) %>%
-  select(make) %>%
   mutate(aesthetic = FALSE, practical = FALSE) %>%
-  tibbletate(annotate_cols = c("aesthetic", "practical"))
+  tibblefiddle(
+    annotate_vars = c("aesthetic", "practical"),
+    hide_vars = c("mpg", "disp")
+  )
+
 
 # The `aesthetic` and `practical columns in the `my_pics` dataframe reflect 
 # your choices.
